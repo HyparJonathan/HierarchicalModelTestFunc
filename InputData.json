@@ -1,0 +1,23 @@
+{
+    "$id": "InputData",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Data from a file input.",
+    "x-namespace": "Hypar.Functions.Execution",
+    "Title": "InputData",
+    "type": [
+        "object",
+        "null"
+    ],
+    "required": [],
+    "properties": {
+        "Key": {
+            "type": "string"
+        },
+        "LocalFilePath": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "discriminator": "discriminator",
+    "title": "InputData"
+}

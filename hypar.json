@@ -1,0 +1,57 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "281cc9e3-1f96-4711-9b65-ed65b4974d34",
+  "name": "HierarchicalModelTestFunc",
+  "description": "The HierarchicalModelTestFunc function.",
+  "language": "C#",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "Single File": {
+        "$hyparFileTypes": [
+          "png",
+          "jpg",
+          "jpeg"
+        ],
+        "$ref": "https://schemas.hypar.io/InputData.json"
+      },
+      "List of Files": {
+        "type": "array",
+        "items": {
+          "$hyparFileTypes": [
+            "png",
+            "jpg",
+            "jpeg"
+          ],
+          "$ref": "https://schemas.hypar.io/InputData.json"
+        }
+      },
+      "Hierarchical": {
+        "type": "object",
+        "properties": {
+          "A Number Input": {
+            "type": "number"
+          },
+          "Nested Input Data": {
+            "$hyparFileTypes": [
+              "png",
+              "jpg",
+              "jpeg"
+            ],
+            "$ref": "https://schemas.hypar.io/InputData.json"
+          }
+        }
+      }
+    }
+  },
+  "outputs": [
+    {
+      "name": "Fortune",
+      "description": "Your fortune",
+      "type": "string"
+    }
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "last_updated": "0001-01-01T00:00:00",
+  "cli_version": "1.7.0-alpha.15"
+}
