@@ -26,6 +26,25 @@
           "$ref": "https://schemas.hypar.io/InputData.json"
         }
       },
+      "List of Objects": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Size in Smoots": {
+              "type": "number"
+            },
+            "Object with InputData": {
+              "$ref": "https://hypar.io/Schemas/InputData.json",
+              "$hyparFileTypes": [
+                "png",
+                "jpg",
+                "jpeg"
+              ]
+            }
+          }
+        }
+      },
       "Hierarchical": {
         "type": "object",
         "properties": {

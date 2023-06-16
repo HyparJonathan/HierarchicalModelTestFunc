@@ -13,6 +13,10 @@ namespace HierarchicalModelTestFunc
             {
                 Console.WriteLine("ListOfFiles: '" + file.Key + "'=>'" + file.LocalFilePath + "'");
             }
+            foreach (var obj in input.ListOfObjects)
+            {
+                Console.WriteLine("ListOfObjects: " + obj.SizeInSmoots + " Smoots, '" + obj.ObjectWithInputData.Key + "'=>'" + obj.ObjectWithInputData.LocalFilePath + "'");
+            }
             Console.WriteLine("Hierarchical: '" + input.Hierarchical.NestedInputData.Key + "'=>'" + input.Hierarchical.NestedInputData.LocalFilePath + "'");
             return new HierarchicalModelTestFuncOutputs("You will have to deploy and run this function many times.");
         }

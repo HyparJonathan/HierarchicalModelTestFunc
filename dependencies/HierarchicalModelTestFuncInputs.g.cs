@@ -29,17 +29,18 @@ namespace HierarchicalModelTestFunc
     {
         [Newtonsoft.Json.JsonConstructor]
         
-        public HierarchicalModelTestFuncInputs(InputData @singleFile, IList<InputData> @listOfFiles, Hierarchical @hierarchical, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey):
+        public HierarchicalModelTestFuncInputs(InputData @singleFile, IList<InputData> @listOfFiles, IList<ListOfObjects> @listOfObjects, Hierarchical @hierarchical, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey):
         base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
             var validator = Validator.Instance.GetFirstValidatorForType<HierarchicalModelTestFuncInputs>();
             if(validator != null)
             {
-                validator.PreConstruct(new object[]{ @singleFile, @listOfFiles, @hierarchical});
+                validator.PreConstruct(new object[]{ @singleFile, @listOfFiles, @listOfObjects, @hierarchical});
             }
         
             this.SingleFile = @singleFile;
             this.ListOfFiles = @listOfFiles;
+            this.ListOfObjects = @listOfObjects;
             this.Hierarchical = @hierarchical;
         
             if(validator != null)
@@ -54,9 +55,51 @@ namespace HierarchicalModelTestFunc
         [Newtonsoft.Json.JsonProperty("List of Files", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public IList<InputData> ListOfFiles { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("List of Objects", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public IList<ListOfObjects> ListOfObjects { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("Hierarchical", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Hierarchical Hierarchical { get; set; }
     
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.21.0 (Newtonsoft.Json v13.0.0.0)")]
+    
+    public partial class ListOfObjects 
+    
+    {
+        [Newtonsoft.Json.JsonConstructor]
+        public ListOfObjects(double @sizeInSmoots, InputData @objectWithInputData)
+        {
+            var validator = Validator.Instance.GetFirstValidatorForType<ListOfObjects>();
+            if(validator != null)
+            {
+                validator.PreConstruct(new object[]{ @sizeInSmoots, @objectWithInputData});
+            }
+        
+            this.SizeInSmoots = @sizeInSmoots;
+            this.ObjectWithInputData = @objectWithInputData;
+        
+            if(validator != null)
+            {
+                validator.PostConstruct(this);
+            }
+        }
+    
+        [Newtonsoft.Json.JsonProperty("Size in Smoots", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double SizeInSmoots { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Object with InputData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public InputData ObjectWithInputData { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.21.0 (Newtonsoft.Json v13.0.0.0)")]

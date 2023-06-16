@@ -8,6 +8,7 @@ The HierarchicalModelTestFunc function.
 |---|---|---|
 |Single File|https://schemas.hypar.io/InputData.json||
 |List of Files|array||
+|List of Objects|array||
 |Hierarchical|object||
 
 
